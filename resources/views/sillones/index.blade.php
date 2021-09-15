@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>INDEX</h1>
-</body>
-</html>
+@extends('plantillas.plantilla')
+@section('titulo', 'LISTADO DE SILLONES')
+@section('titulopagina', 'LISTADO DE SILLONES')
+@section('contenido')
+<div class="card-body">
+    <a href="{{route('sillones.crear')}}" class="btn btn-success btn-sm">AGREGAR SILLON</a>
+  </div>
+  <div class="card-body">
+
+  </div>
+<div class="card-body">
+    ...
+</div>
+
+
+
+@endsection
