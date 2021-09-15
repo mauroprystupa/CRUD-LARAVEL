@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SilloneController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class);
+
+Route::get('sillones', [SilloneController::class, 'index'])->name('sillones.index');
+Route::get('sillones/crear', [SilloneController::class, 'crear'])->name('sillones.crear');
+Route::get('sillones/modificar', [SilloneController::class, 'modificar'])->name('sillones.modificar');
