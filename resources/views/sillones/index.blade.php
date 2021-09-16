@@ -36,7 +36,7 @@
                             </form>
                         </td>
 
-                        <td ><a href="" class="btn btn-primary btn-sm">EDITAR</a></td>
+                        <td ><a href="{{route('sillones.modificar', $sillon->id)}}" class="btn btn-primary btn-sm">EDITAR</a></td>
 
                     </tr>
                 @endforeach

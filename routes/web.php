@@ -6,6 +6,7 @@ use App\Http\Controllers\SilloneController;
 use App\Models\Sillone;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Tags\Since;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,19 @@ Route::delete('sillones/{id}', function ($id) {
    $sillon->delete();
    return redirect()->route('sillones.index')->with('info',' SE BORRO EL SILLON CON EXITO'); 
 })->name('sillones.borrar');
+
+Route::get('sillones/{id}/modificar', function ($id){
+    $sillon = Sillone::findOrFail($id);
+    return view('sillones.modificar', compact('sillon'));
+
+})->name('sillones.modificar');
+
+Route::put('sillones/{id}', function ($id, Request $request) {
+    $sillon = new Sillone();
+    $nuevosillon = new Sillone;
+    $nuevosillon->nombre = $request->input('nombre');
+    $nuevosillon->descripcion = $request->input('descripcion');
+    $nuevosillon->precio = $request->input('precio');
+    $nuevosillon->save();
+    return redirect()->route('sillones.index')->with('info',' SE MODIFICO EL SILLON CON EXITO');
+})->name('sillones.actualizar');
