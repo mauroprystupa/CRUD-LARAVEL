@@ -3,7 +3,8 @@
 @section('titulopagina', 'AGREGAR NUEVO SILLON')
 @section('contenido')
     <div class="card-body">
-        <form action="">
+        <form action="{{route('sillones.guardar')}}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="">NOMBRE</label>
                 <input type="text" class="form-control" name="nombre">
