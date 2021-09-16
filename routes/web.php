@@ -49,6 +49,13 @@ Route::get('sillones/{id}/modificar', function ($id){
 })->name('sillones.modificar');
 
 Route::put('sillones/{id}', function ($id, Request $request) {
+    $request->validate([
+        'nombre'=>'required',
+        'descripcion'=>'required',
+        'precio'=>'required'
+      ]);
+
+
     $sillon = new Sillone();
     $nuevosillon = new Sillone;
     $nuevosillon->nombre = $request->input('nombre');
